@@ -1,0 +1,25 @@
+{
+  "name": "dq-license",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "1.4.9",
+    "angular-mocks": "1.4.9",
+    "angular-resource": "1.4.9",
+    "angular-ui-router": "0.2.18"
+  },
+  "devDependencies": {},
+  "overrides": {
+    "angular": {
+      "main": "angular.min.js"
+    },
+    "angular-mocks": {
+      "ignore": true
+    },
+    "angular-resource": {
+      "main": "angular-resource.min.js"
+    },
+    "angular-ui-router": {
+      "main": "release/angular-ui-router.min.js"
+    }
+  }
+}
