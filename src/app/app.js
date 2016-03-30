@@ -6,10 +6,11 @@
         .controller('App', App)
         .run(Run);
 
-    //App.$inject = [''];
+    App.$inject = ['firebase'];
 
-    function App() {
+    function App(firebase) {
         var vm = this;
+        firebase.init('https://amber-torch-7846.firebaseio.com')
     }
 
     Run.$inject = ['$rootScope', '$state'];
@@ -21,7 +22,7 @@
         function stateChangeError(e, toState, toParams, fromState, fromParams) {
             e.preventDefault();
             console.log('Generic state change error.');
-            $state.go('app.software', null, {notify: false});
+            $state.go('app.user', null, {notify: false});
         }
 
     }

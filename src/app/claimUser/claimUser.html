@@ -1,0 +1,37 @@
+<div class="panel panel-default">
+
+	<div class="panel-body">
+		<table  class="table table-striped width well" ng-repeat="claim in vm.data">
+    		<thead>
+      			<tr>
+        			<th>Order: {{claim.orderNumber}} Type: {{claim.claimType}}</th>
+        		</tr>
+        		<tr>
+        			<td>Fat</td> <td>{{claim.fatResult}}</td>
+                </tr>
+                <tr>
+                    <td>Spec</td> <td>{{claim.specResult}}</td>
+                </tr>
+        		<tr>
+        			<td>FatSB</td><td> {{claim.fatSB}}</td>
+                </tr>
+                <tr>
+                    <td>SpecSB</td><td> {{claim.specSB}}</td>
+                </tr>
+                <tr>
+                    <td>Difference</td> <td>{{claim.fatResult-claim.fatSB}}</td>
+                    <td>Difference</td> <td>{{claim.specResult-claim.specSB}}</td>
+                </tr>
+      			
+    		</thead>
+    		
+		</table>
+
+		
+	</div>
+	
+</div>
+
+{{vm.company}}
+
+

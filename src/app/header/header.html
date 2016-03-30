@@ -1,1 +1,47 @@
-Header
+<header class="navbar navbar-default navbar-fixed-top navbar-inner">
+	<div class="container">
+		
+		<nav>
+			<ul class="nav navbar-nav ">
+				<li><a ui-sref="app.user" class="navbar-brand">ABC Claim System</a></li>
+				<li><a ui-sref="app.user">Open New Claim</a></li>
+				<li><a ui-sref="app.claimUser">Past Claims</a></li>
+
+				<!-- <a class="btn btn-primary" ng-click="vm.newUser()" ng-hide="authData">Create New User</a>
+				<a class="btn btn-primary" ng-click="vm.logIn()" ng-hide="authData">Log In</a>-->
+				
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li uib-dropdown>
+		          <!-- <a ui-sref="app.user" ng-if="vm.authData">Logged in as: {{vm.email}}</a> -->
+		        </li>
+		        <li uib-dropdown>
+		          
+			      <a href id="simple-dropdown" uib-dropdown-toggle>
+			        Profile
+			      </a>
+			      <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
+			        <li><a ui-sref="app.customer">Customer Info</a> </li>
+			        <li><a ui-sref="app.signIn">Sign In/ Sign Up</a> </li>
+		            <li><a ng-click="vm.logOut()" >Log Out</a> </li>
+
+			      </ul>
+			    </li>
+				
+				
+
+				
+			</ul>
+		</nav>
+	
+	</div>
+</header>
+
+
+
+
+
+
+
+
+

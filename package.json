@@ -1,7 +1,7 @@
 {
-  "name": "dq-license",
+  "name": "claims",
   "version": "1.0.0",
-  "description": "Damian's awesome MEAN application",
+  "description": "claim app",
   "main": "gulpfile.js",
   "dependencies": {
     "gulp": "3.9.1",
@@ -18,5 +18,5 @@
     "main-bower-files": "2.9.0"
   },
   "license": "Copyright 2015 DQ",
-  "author": "DQ"
+  "author": "Devin"
 }

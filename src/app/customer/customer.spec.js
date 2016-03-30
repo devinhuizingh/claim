@@ -1,12 +1,12 @@
-describe('app.software', function() {
+describe('app.customer', function() {
 	var ctrl;
 
-	beforeEach(module('app.software'), function() {
-		controller = $controller('Software');
+	beforeEach(module('app.customer'), function() {
+		controller = $controller('Customer');
 		$rootScope.$apply();
 	});
 
-	describe('Software controller', function() {
+	describe('Customer controller', function() {
 		it('should be created successfully', function() {
 			expect(controller).toBe.defined;
 		});

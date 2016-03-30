@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app.software')
+        .module('app.claimUser')
         .run(appRun);
 
     appRun.$inject = ['routeHelper'];
@@ -14,13 +14,13 @@
     function getStates() {
         return [
             {
-                state: 'app.software',
+                state: 'app.claimUser',
                 config: {
-                    url: '/',
+                    url: '/claimUser',
                     views: {
                         'content@': {
-                            templateUrl: '/views/software/software.html',
-                            controller: 'Software',
+                            templateUrl: '/views/claimUser/claimUser.html',
+                            controller: 'ClaimUser',
                             controllerAs: 'vm'
                         }
                     },

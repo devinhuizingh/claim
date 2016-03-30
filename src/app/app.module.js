@@ -6,7 +6,12 @@
 
 			// Application
 			'app.header',
-			'app.software',
+			'app.user',
+			'app.customer',
+			'app.claimUser',
+			'app.signIn',
+			'app.admin',
+			
 
 			// Shared
 			'app.services',
@@ -15,6 +20,8 @@
 			'app.directives',
 
 			// Configuration
-			'config.router'
+			'config.router',
+			'config.bootstrap'
+
 		]);
 })();

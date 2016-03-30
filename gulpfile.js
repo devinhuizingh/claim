@@ -37,7 +37,7 @@ gulp.task('app', function() {
     ];
     return gulp.src(files)
         .pipe(concat('app.js'))
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(gulp.dest('dist/js'))
         .pipe(connect.reload());
 });
@@ -89,6 +89,7 @@ gulp.task('vendor', function() {
         .pipe(gulp.dest('dist/js'));
 
     var vendors = [
+        "bower_components/bootstrap-css-only/css/bootstrap.min.css"
         
     ];
 
@@ -120,7 +121,8 @@ gulp.task('views', function() {
 gulp.task('serve', function() {
     return connect.server({
         livereload: true,
-        root: 'dist'
+        root: 'dist',
+        fallback: 'dist/index.html'
     });
 });
 
@@ -131,3 +133,5 @@ gulp.task('watch', function() {
     gulp.watch(['src/index.html', 'src/app/**/*.html', 'src/app/shared/**/*.html'], ['views']);
     gulp.watch(['src/styles/**/*.scss', 'src/styles/*.scss'], ['styles']);
 });
+
+gulp.task('everything', function() { gulp.run('app'); gulp.run('images'); gulp.run('vendor'); gulp.run('views'); gulp.run('styles'); })

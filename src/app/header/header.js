@@ -5,10 +5,19 @@
         .module('app.header')
         .controller('Header', Header);
 
-    //Header.$inject = [''];
+    //Header.$inject = [];
 
     function Header() {
         var vm = this;
-
+        //var ref = firebase.ref();
+        var ref = new Firebase("https://amber-torch-7846.firebaseio.com");
+        vm.logOut = function(){
+        	ref.unauth();
+        }
+        
+    var authData = ref.getAuth();
+    vm.authData = authData;
+    // vm.email = authData.password.email;
+    //console.log(vm.email)
     }
 })();

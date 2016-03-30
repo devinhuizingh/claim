@@ -1,0 +1,26 @@
+<h1>Admin View</h1>
+<div class="panel panel-default">
+
+	<div class="panel-body" ng-repeat="claim in vm.data.entered">
+		<table  class="table table-striped width well" ng-repeat="claim in claim">
+    		<thead>
+      			<tr>
+        			<th>Fat Claim, Order: {{claim.orderNumber}}</th>
+        		</tr>
+        		<tr>
+        			<td>Fat</td> <td>{{claim.fatResult}}</td>
+        		</tr>
+        		<tr>
+                    <td>FatSB</td><td> {{claim.fatSB}}</td>
+                </tr>
+                <tr>
+                    <td>Difference</td> <td>{{claim.fatResult-claim.fatSB}}</td>
+                </tr>
+      			
+    		</thead>
+    		
+		</table>
+
+	</div>
+	
+</div>
