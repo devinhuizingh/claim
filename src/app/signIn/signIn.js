@@ -17,8 +17,6 @@
         };
         var ref = new Firebase("https://amber-torch-7846.firebaseio.com");
         vm.authObj = $firebaseAuth(ref);
-        console.log(vm.authObj);
-        console.log(vm.authObj.getAuth);
         
         //create user authObj
         vm.signUp = function() {
@@ -26,16 +24,14 @@
                 email: vm.user.email,
                 password: vm.user.password
                 }).then(function(userData){
-                    // user created
-                    console.log("User " + userData.uid + " created successfully!");
+                    vm.success=true;
                 }).catch(function(error){
-                    // error creating user
+                    vm.failure=true;
                 });
         };
 
         vm.authObj.$onAuth(function(authData) {
             vm.authData=authData;
-            console.log(authData.uid)
         });
 
         //sign in authObj
@@ -43,24 +39,65 @@
             vm.authObj.$authWithPassword({
                 email: vm.user.email,
                 password: vm.user.password
-            }).catch(function(error) {
-                //Authentication error
+            }).then(function(userData){
+                    vm.success=true;
+                }).catch(function(error) {
+                    vm.failure=true;
             });
 
-            vm.authObj.$onAuth(function(authData) {
-                if (authData) {
-                    
-
-                } else {
-                    //user logged out
-                }
-            });
         }
 
         vm.switch = true;
         vm.toggle = function() {
             vm.switch = !vm.switch;
-        }   	
+        } 
+
+        vm.forgot = function() {  
+            vm.instructions=true;
+        }
+        vm.forgot2 = function() {
+            ref.resetPassword({
+                email: vm.user.email
+            }, function(error) {
+                if (error) {
+                    switch (error.code) {
+                        case "INVALID_USER":
+                            alert("The specified user account does not exist.");
+                            break;
+                        default:
+                            alert("Error resetting password:", error);
+                    }
+                } else {
+                    alert("Password reset email sent successfully!");
+                }
+            });
+        }
+
+        vm.change = function() {
+            vm.changed=true;
+        }
+        vm.change2 = function() {
+            ref.changePassword({
+                email: vm.user.email,
+                oldPassword: vm.user.password,
+                newPassword: vm.user.newPassword
+            }, function(error) {
+                if (error) {
+                    switch (error.code) {
+                        case "INVALID_PASSWORD":
+                            alert("The specified user account password is incorrect.");
+                            break;
+                        case "INVALID_USER":
+                            alert("The specified user account does not exist.");
+                            break;
+                        default:
+                            alert("Error changing password:", error);
+                    }
+                 } else {
+                    alert("User password changed successfully!");
+                }
+            });
+        }
     }
 
     

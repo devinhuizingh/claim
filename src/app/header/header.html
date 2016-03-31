@@ -7,13 +7,12 @@
 				<li><a ui-sref="app.user">Open New Claim</a></li>
 				<li><a ui-sref="app.claimUser">Past Claims</a></li>
 
-				<!-- <a class="btn btn-primary" ng-click="vm.newUser()" ng-hide="authData">Create New User</a>
-				<a class="btn btn-primary" ng-click="vm.logIn()" ng-hide="authData">Log In</a>-->
+				
 				
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li uib-dropdown>
-		          <!-- <a ui-sref="app.user" ng-if="vm.authData">Logged in as: {{vm.email}}</a> -->
+		          <a ng-if="vm.signed">Signed in as: {{vm.email}}</a>
 		        </li>
 		        <li uib-dropdown>
 		          

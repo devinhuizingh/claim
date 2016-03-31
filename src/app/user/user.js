@@ -13,11 +13,16 @@
         vm.types = ["Fat Claim", "Specification", "Foreign Object"];
         
         var ref = firebase.ref();
-        var enteredRef = new Firebase("https://amber-torch-7846.firebaseio.com/entered")
+        var enteredRef = new Firebase("https://amber-torch-7846.firebaseio.com/entered");
         
+        vm.signWarn = "not set";
         var authData = ref.getAuth();
-
-        
+        if (authData) {
+          vm.signWarn = false;
+          
+        } else {
+            vm.signWarn = true;
+        }
 
         enteredRef.on("value", function(snapshot) {
           }, function (errorObject) {
@@ -34,9 +39,11 @@
                     fatSB: vm.fatSB,
                     difference: vm.fatResult-vm.fatSB,
                     uid: authData.uid,
-                    claimType: vm.claimType
+                    claimType: vm.claimType,
+                    email: authData.password.email
                 
             });
+            alert("claim was submitted, to submit another please refresh your browser");
         } 
         vm.specSubmit = function() {
             var enteredClaim = enteredRef.child(authData.uid);
@@ -50,9 +57,11 @@
                     difference: vm.specResult-vm.specSB,
                     uid: authData.uid,
                     claimType: vm.claimType,
-                    dollarAmount: vm.specAmount 
+                    dollarAmount: vm.specAmount,
+                    email: authData.password.email
                 
             });
+            alert("claim was submitted, to submit another please refresh your browser");
         }             	
     }
 

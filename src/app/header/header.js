@@ -16,8 +16,14 @@
         }
         
     var authData = ref.getAuth();
-    vm.authData = authData;
-    // vm.email = authData.password.email;
-    //console.log(vm.email)
+    if (authData) {
+          vm.email = authData.password.email;
+          vm.signed = true;
+          
+        } else {
+            
+    }
+    
+    
     }
 })();

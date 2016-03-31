@@ -1,26 +1,83 @@
-<h1>Admin View</h1>
-<div class="panel panel-default">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">    
+            <h1>Admin View</h1>
+            <h1 class="bg-danger" ng-if="vm.signWarn">Please sign in before continuing</h1>
+            <uib-tabset active="active">
+                <uib-tab index="0" heading="All Claims">
+                    <div class="panel panel-default">
 
-	<div class="panel-body" ng-repeat="claim in vm.data.entered">
-		<table  class="table table-striped width well" ng-repeat="claim in claim">
-    		<thead>
-      			<tr>
-        			<th>Fat Claim, Order: {{claim.orderNumber}}</th>
-        		</tr>
-        		<tr>
-        			<td>Fat</td> <td>{{claim.fatResult}}</td>
-        		</tr>
-        		<tr>
-                    <td>FatSB</td><td> {{claim.fatSB}}</td>
-                </tr>
-                <tr>
-                    <td>Difference</td> <td>{{claim.fatResult-claim.fatSB}}</td>
-                </tr>
-      			
-    		</thead>
-    		
-		</table>
+                    	<div class="panel-body" ng-repeat="claim in vm.data.entered">
+                    		<table  class="table table-striped width well" ng-repeat="claim in claim"  ng-switch on="claim.claimType">
+                        		<thead>
+                                    <tr>
+                                        <th>User: {{claim.email}} </th>
+                                    </tr>
+                                    <tr>
+                                        <th>Order: {{claim.orderNumber}} </th>
+                                    </tr>
+                                    <tr>
+                                        <th>Type: {{claim.claimType}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody ng-switch-when="Fat Claim">
+                                    <tr>
+                                        <td>Fat</td> <td>{{claim.fatResult}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>FatSB</td><td> {{claim.fatSB}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Difference</td> <td>{{claim.fatResult-claim.fatSB}}</td>
+                                    </tr>
+                                </tbody>
+                                <tbody ng-switch-when="Specification">
+                                    <tr>
+                                        <td>Spec</td> <td>{{claim.specResult}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SpecSB</td><td> {{claim.specSB}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Difference</td> <td>{{claim.specResult-claim.specSB}}</td>
+                                    </tr>
+                                </tbody>
+                        		
+                    		</table>
 
-	</div>
-	
+                    	</div>
+                    	
+                    </div>
+                </uib-tab>
+                <uib-tab index="$index + 1" heading="Registered Users">
+                    <div class="panel panel-default">
+                        <div class="panel-body" ng-repeat="user in vm.data.users">
+                            <table  class="table table-striped width well">
+                                <thead>
+                                    <tr>
+                                        <th>{{user.company}} </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>First Name</td> <td>{{user.first}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last Name</td><td> {{user.last}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phone Number</td> <td>{{user.phone}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td> <td>{{user.email}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </div>
 </div>
+
