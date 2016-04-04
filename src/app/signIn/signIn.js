@@ -5,9 +5,9 @@
         .module('app.signIn')
         .controller('SignIn', SignIn);
 
-    SignIn.$inject = ['$firebaseAuth'];
+    SignIn.$inject = ['$firebaseAuth', 'Current'];
 
-    function SignIn($firebaseAuth) {
+    function SignIn($firebaseAuth, Current) {
         var vm = this;
  
         
@@ -43,6 +43,7 @@
             }).then(function(userData){
                     vm.success=true;
                     vm.signed = true;
+                    Current.updateEmail(vm.user.email)
                 }).catch(function(error) {
                     vm.failure=true;
             });

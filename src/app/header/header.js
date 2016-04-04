@@ -5,27 +5,34 @@
         .module('app.header')
         .controller('Header', Header);
 
-    Header.$inject = ['firebase'];
+    Header.$inject = ['firebase', '$rootScope'];
 
-    function Header(firebase) {
+    function Header(firebase, $rootScope) {
         var vm = this;
         var ref = firebase.ref();
-        vm.logOut = function(){
+
+        vm.logOut=logOut;
+        changedAuth();
+
+
+        $rootScope.$on('current:email', changedAuth);
+
+        function logOut(){
         	ref.unauth();
             vm.signed = false;
 
         }
         
-    var authData = ref.getAuth();
-    if (authData) {
-          vm.email = authData.password.email;
-          vm.id= authData.uid;
-          vm.signed = true;
-                    
-        } else {
-            
-    }
-    
-    
+        function changedAuth(ev, email) {
+            var authData = ref.getAuth();
+            //console.log(authData)
+            if (authData) {
+                  vm.email = authData.password.email;
+                  vm.id= authData.uid;
+                  vm.signed = true;
+                  vm.admin = authData.isAdmin?true:false;
+
+            } 
+        }
     }
 })();

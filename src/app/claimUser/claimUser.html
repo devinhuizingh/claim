@@ -2,10 +2,11 @@
     <div class="row">
         <div class="col-sm-12">   
             <h1 class="bg-danger" ng-if="vm.signWarn">Please sign in before continuing</h1>
-            <div class="panel panel-default">
+            <div class="rowPintrest">
+            <div class="panel panel-default item" ng-repeat="claim in vm.data">
                 
-                <div class="panel-body">
-            		<table  class="table table-striped width well" ng-repeat="claim in vm.data" ng-switch on="claim.claimType">
+                <div class="panel-body well">
+            		<table  class="table table-striped well"  ng-switch on="claim.claimType">
                 		<thead>
                   			<tr>
                     			<th>Order: {{claim.orderNumber}} </th>
@@ -38,6 +39,7 @@
                         </tbody>
                   	</table>
                 </div>
+            </div>
 	       </div>
         </div>
     </div>

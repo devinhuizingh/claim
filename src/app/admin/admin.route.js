@@ -24,7 +24,9 @@
                             controllerAs: 'vm'
                         }
                     },
-                    data: {}
+                    data: {
+                        requireAdmin:true
+                    }
                 }
             }
         ];
