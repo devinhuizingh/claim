@@ -25,6 +25,7 @@
                 password: vm.user.password
                 }).then(function(userData){
                     vm.success=true;
+                    vm.signIn();
                 }).catch(function(error){
                     vm.failure=true;
                 });
@@ -41,6 +42,7 @@
                 password: vm.user.password
             }).then(function(userData){
                     vm.success=true;
+                    vm.signed = true;
                 }).catch(function(error) {
                     vm.failure=true;
             });
@@ -54,6 +56,8 @@
 
         vm.forgot = function() {  
             vm.instructions=true;
+            vm.changed=false;
+            vm.changedEmail=false;
         }
         vm.forgot2 = function() {
             ref.resetPassword({
@@ -75,6 +79,8 @@
 
         vm.change = function() {
             vm.changed=true;
+            vm.changedEmail=false;
+            vm.instructions=false;
         }
         vm.change2 = function() {
             ref.changePassword({
@@ -93,11 +99,40 @@
                         default:
                             alert("Error changing password:", error);
                     }
-                 } else {
-                    alert("User password changed successfully!");
+                } else {
+                   alert("User password changed successfully!");
                 }
             });
         }
+
+        vm.changeEmail = function() {
+            vm.changedEmail=true;
+            vm.changed=false;
+            vm.instructions=false;
+        }
+        vm.changeEmail2 = function() {
+            ref.changeEmail({
+                oldEmail: vm.user.email,
+                newEmail: vm.user.newEmail,
+                password: vm.user.password
+            }, function(error) {
+                if (error) {
+                    switch (error.code) {
+                        case "INVALID_PASSWORD":
+                            alert("The specified user account password is incorrect.");
+                            break;
+                        case "INVALID_USER":
+                            alert("The specified user account does not exist.");
+                            break;
+                        default:
+                            alert("Error creating user:", error);
+                    }
+                } else {
+                    alert("User email changed successfully!");
+                }
+            });
+        }
+
     }
 
     

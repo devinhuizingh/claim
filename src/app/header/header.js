@@ -5,21 +5,23 @@
         .module('app.header')
         .controller('Header', Header);
 
-    //Header.$inject = [];
+    Header.$inject = ['firebase'];
 
-    function Header() {
+    function Header(firebase) {
         var vm = this;
-        //var ref = firebase.ref();
-        var ref = new Firebase("https://amber-torch-7846.firebaseio.com");
+        var ref = firebase.ref();
         vm.logOut = function(){
         	ref.unauth();
+            vm.signed = false;
+
         }
         
     var authData = ref.getAuth();
     if (authData) {
           vm.email = authData.password.email;
+          vm.id= authData.uid;
           vm.signed = true;
-          
+                    
         } else {
             
     }

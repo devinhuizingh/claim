@@ -3,15 +3,17 @@
         <div class="col-sm-12">    
             <h1>Admin View</h1>
             <h1 class="bg-danger" ng-if="vm.signWarn">Please sign in before continuing</h1>
+            
             <uib-tabset active="active">
                 <uib-tab index="0" heading="All Claims">
-                    <div class="panel panel-default">
+                    <div class="rowPintrest">
+                    <div class="panel panel-default item" ng-repeat="claim in vm.myData">
 
-                    	<div class="panel-body" ng-repeat="claim in vm.data.entered">
-                    		<table  class="table table-striped width well" ng-repeat="claim in claim"  ng-switch on="claim.claimType">
+                    	<div class="panel-body well" >
+                    		<table  class="table width well" ng-switch on="claim.claimType">
                         		<thead>
                                     <tr>
-                                        <th>User: {{claim.email}} </th>
+                                        <th>User:  {{claim.email}}  </th>
                                     </tr>
                                     <tr>
                                         <th>Order: {{claim.orderNumber}} </th>
@@ -46,13 +48,14 @@
                     		</table>
 
                     	</div>
-                    	
+                    </div>	
                     </div>
                 </uib-tab>
                 <uib-tab index="$index + 1" heading="Registered Users">
-                    <div class="panel panel-default">
-                        <div class="panel-body" ng-repeat="user in vm.data.users">
-                            <table  class="table table-striped width well">
+                    <div class="rowPintrest">
+                    <div class="panel panel-default item" ng-repeat="user in vm.data.users">
+                        <div class="panel-body well" >
+                            <table  class="table width well">
                                 <thead>
                                     <tr>
                                         <th>{{user.company}} </th>
@@ -74,6 +77,7 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
                     </div>
                 </uib-tab>
             </uib-tabset>

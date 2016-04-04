@@ -10,13 +10,14 @@
     function Customer(firebase, $firebaseObject) {
         var vm = this;
         var ref = firebase.ref();
-        var usersRef = new Firebase("https://amber-torch-7846.firebaseio.com/users")
+        var usersRef = new Firebase("https://amber-torch-7846.firebaseio.com/users");
         var authData = ref.getAuth();
         if (authData) {
             vm.signWarn = false;
             var usersRefGet = new Firebase("https://amber-torch-7846.firebaseio.com/users/"+authData.uid);
             vm.data = $firebaseObject(usersRefGet);
-            usersRef.on("value", function(snapshot) {
+            usersRef.once("value", function(snapshot) {
+                
             });
             vm.email = authData.password.email;
             

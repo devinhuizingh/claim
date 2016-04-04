@@ -10,7 +10,7 @@
     function User(firebase) {
         var vm = this;
 
-        vm.types = ["Fat Claim", "Specification", "Foreign Object"];
+        vm.types = ["Fat Claim", "Specification"];
         
         var ref = firebase.ref();
         var enteredRef = new Firebase("https://amber-torch-7846.firebaseio.com/entered");
