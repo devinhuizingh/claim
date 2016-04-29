@@ -5,13 +5,17 @@
         .module('app.admin')
         .controller('Admin', Admin);
 
-    Admin.$inject = ['$firebaseObject', 'firebase'];
+    Admin.$inject = ['$firebaseObject', 'firebase', '$window'];
 
-    function Admin($firebaseObject, firebase) {
-        var vm = this;
-        var ref = firebase.ref();
+    function Admin($firebaseObject, firebase, $window) {
         
-        var authData = ref.getAuth();
+        var vm = this;
+        //var ref = firebase.ref();
+        var ref = new MockFirebase('https://amber-torch-7846.firebaseio.com/');
+        //console.log(ref)
+        
+       var authData = ref.getAuth();
+       
         if (authData) {
             vm.signWarn = false;
             

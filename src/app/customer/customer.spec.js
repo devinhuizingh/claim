@@ -1,5 +1,5 @@
 describe('app.customer', function() {
-	var ctrl;
+	var controller;
 
 	beforeEach(module('app.customer'), function() {
 		controller = $controller('Customer');

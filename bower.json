@@ -9,7 +9,8 @@
     "angular-bootstrap": "^1.2.5",
     "bootstrap-css-only": "^3.3.6",
     "firebase": "^2.4.1",
-    "angularfire": "^1.1.4"
+    "angularfire": "^1.1.4",
+    "mockfirebase": "^0.11.0"
   },
   "devDependencies": {},
   "overrides": {

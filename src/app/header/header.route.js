@@ -26,7 +26,7 @@
                         }
                     },
                     data: {
-                        //requireLogin: true
+                        requireLogin: true
                     }
                 }
             }

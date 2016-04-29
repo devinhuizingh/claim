@@ -2,7 +2,31 @@
     'use strict';
 
     angular
-        .module('app')
+        .module('app', [
+
+            // Application
+            'app.header',
+            'app.user',
+            'app.customer',
+            'app.claimUser',
+            
+            'app.admin',
+
+            //anonymous
+            'anon.signIn',
+            
+
+            // Shared
+            'app.services',
+
+            // Components
+            'app.directives',
+
+            // Configuration
+            'config.router',
+            'config.bootstrap'
+
+        ])
         .controller('App', App)
         .run(Run);
 
@@ -13,9 +37,9 @@
         firebase.init('https://amber-torch-7846.firebaseio.com')
     }
 
-    Run.$inject = ['$rootScope', '$state'];
+    Run.$inject = ['$rootScope', '$state', 'Current', 'firebase'];
 
-    function Run($rootScope, $state) {
+    function Run($rootScope, $state, Current, firebase) {
         $rootScope.$on('$stateChangeError', stateChangeError);
         $rootScope.$on('$stateChangeStart', stateChangeStart);
 
@@ -26,7 +50,21 @@
         }
 
         function stateChangeStart(e, toState, toParams, fromState, fromParams) {
-            //console.log(toState)
+              var ref = firebase.ref();
+              var authData = ref.getAuth();
+
+                     
+            if (toState.data.requireAdmin && !Current.getAdmin()) {
+                e.preventDefault();
+                $state.go('app.customer');
+            };
+            
+            
+              if (toState.data.requireLogin && !authData) {
+                e.preventDefault();
+                $state.go('anon.signIn');
+            };
+
         }
 
     }

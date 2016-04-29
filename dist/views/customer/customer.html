@@ -1,0 +1,88 @@
+<div class="container" ng-if="!vm.data.first">
+  <div class="row">
+    <h1 class="bg-danger" ng-if="vm.signWarn">Please sign in before continuing</h1>
+    <form class="form-horizontal" role="form" >
+  	<h1>Customer Info</h1>
+
+  	  <div class="form-group" >
+  		<label class="control-label col-sm-2" for="name">First Name:</label>
+      	<div class="col-sm-10">
+        	<input type="firstname"  ng-model="vm.first" class="form-control" id="name" placeholder="First Name">
+      	</div>
+      </div>
+      <div class="form-group">
+  		<label class="control-label col-sm-2"  for="name">Last Name:</label>
+      	<div class="col-sm-10">
+        	<input type="lastname" class="form-control" id="name" ng-model="vm.last" placeholder="Last Name">
+      	</div>
+      </div>
+      <div class="form-group">
+  		<label class="control-label col-sm-2" for="company">Company:</label>
+      	<div class="col-sm-10">
+        	<input type="company" ng-model="vm.company" class="form-control" id="company" placeholder="Company">
+      	</div>
+      </div>
+      <div class="form-group">
+  		<label class="control-label col-sm-2" for="phone">Phone Number:</label>
+      	<div class="col-sm-10">
+        	<input type="phone" ng-model="vm.phone" class="form-control" id="phone" placeholder="Phone Number">
+      	</div>
+      </div>
+      <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Email:</label>
+        <div class="col-sm-10">
+           {{vm.data.email}}
+        </div>
+      </div>
+      <div class="form-group"> 
+      	<div class="col-sm-offset-2 col-sm-10">
+        		<button type="submit" class="btn btn-default" ng-click="vm.customerSubmit()">Submit</button>
+        		
+      	</div>
+    	</div>
+  </form>
+
+  </div>
+</div>
+
+
+<div class="container" ng-if="vm.data.first">
+  <div class="row">
+    <form class="form-horizontal" role="form" >
+    <h1>Customer Info</h1>
+      <div class="form-group" >
+      <label class="control-label col-sm-2" for="name">First Name:</label>
+        <div class="col-sm-10">
+          <input type="firstname"  ng-model="vm.data.first" class="form-control" id="name" placeholder="First Name" ng-change="vm.data.$save()">
+        </div>
+      </div>
+      <div class="form-group">
+      <label class="control-label col-sm-2"  for="name">Last Name:</label>
+        <div class="col-sm-10">
+          <input type="lastname" class="form-control" id="name" ng-model="vm.data.last" placeholder="Last Name" ng-change="vm.data.$save()">
+        </div>
+      </div>
+      <div class="form-group">
+      <label class="control-label col-sm-2" for="company">Company:</label>
+        <div class="col-sm-10">
+          <input type="company" ng-model="vm.data.company" class="form-control" id="company" placeholder="Company" ng-change="vm.data.$save()">
+        </div>
+      </div>
+      <div class="form-group">
+      <label class="control-label col-sm-2" for="phone">Phone Number:</label>
+        <div class="col-sm-10">
+          <input type="phone" ng-model="vm.data.phone" class="form-control" id="phone" placeholder="Phone Number" ng-change="vm.data.$save()">
+        </div>
+      </div>
+      <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Email:</label>
+        <div class="col-sm-10">
+           {{vm.data.email}}
+        </div>
+      </div>
+          
+    </form>
+
+  </div>
+</div>
+	

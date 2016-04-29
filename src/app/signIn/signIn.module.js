@@ -1,5 +1,5 @@
 (function() {
     'use strict';
 
-    angular.module('app.signIn', []);
+    angular.module('anon.signIn', []);
 })();

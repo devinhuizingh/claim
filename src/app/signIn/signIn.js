@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('app.signIn')
+        .module('anon.signIn')
         .controller('SignIn', SignIn);
 
-    SignIn.$inject = ['$firebaseAuth', 'Current'];
+    SignIn.$inject = ['$firebaseAuth', 'Current', '$firebaseObject'];
 
-    function SignIn($firebaseAuth, Current) {
+    function SignIn($firebaseAuth, Current, $firebaseObject) {
         var vm = this;
  
         
@@ -16,7 +16,10 @@
             ref.unauth();
         };
         var ref = new Firebase("https://amber-torch-7846.firebaseio.com");
+        
         vm.authObj = $firebaseAuth(ref);
+        
+        
         
         //create user authObj
         vm.signUp = function() {
@@ -40,10 +43,17 @@
             vm.authObj.$authWithPassword({
                 email: vm.user.email,
                 password: vm.user.password
+
+
             }).then(function(userData){
+                    
+
+
                     vm.success=true;
                     vm.signed = true;
-                    Current.updateEmail(vm.user.email)
+                    Current.updateEmail(vm.user.email);
+                                       
+                    
                 }).catch(function(error) {
                     vm.failure=true;
             });
@@ -53,6 +63,8 @@
         vm.switch = true;
         vm.toggle = function() {
             vm.switch = !vm.switch;
+
+            
         } 
 
         vm.forgot = function() {  

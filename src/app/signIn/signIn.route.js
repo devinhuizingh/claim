@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app.signIn')
+        .module('anon.signIn')
         .run(appRun);
 
     appRun.$inject = ['routeHelper'];
@@ -14,7 +14,24 @@
     function getStates() {
         return [
             {
-                state: 'app.signIn',
+                state: 'anon',
+                config: {
+                    url: '',
+                    abstract: true,
+                    views: {
+                        'header@': {
+                            templateUrl: '/views/header/header.html',
+                            controller: 'Header',
+                            controllerAs: 'vm'
+                        }
+                    },
+                    data: {
+                        requireLogin: false 
+                    }
+                }
+            },
+            {
+                state: 'anon.signIn',
                 config: {
                     url: '/signIn',
                     views: {
@@ -24,7 +41,7 @@
                             controllerAs: 'vm'
                         }
                     },
-                    data: {}
+                    //data: {               }
                 }
             }
         ];

@@ -1,5 +1,5 @@
 describe('app.claimUser', function() {
-	var ctrl;
+	var controller;
 
 	beforeEach(module('app.claimUser'), function() {
 		controller = $controller('ClaimUser');

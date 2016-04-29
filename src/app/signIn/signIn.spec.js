@@ -1,7 +1,7 @@
-describe('app.signIn', function() {
-	var ctrl;
+describe('anon.signIn', function() {
+	var controller;
 
-	beforeEach(module('app.signIn'), function() {
+	beforeEach(module('anon.signIn'), function() {
 		controller = $controller('SignIn');
 		$rootScope.$apply();
 	});

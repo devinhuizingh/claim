@@ -9,8 +9,11 @@
 			'app.user',
 			'app.customer',
 			'app.claimUser',
-			'app.signIn',
+			
 			'app.admin',
+
+			//anonymous
+			'anon.signIn',
 			
 
 			// Shared

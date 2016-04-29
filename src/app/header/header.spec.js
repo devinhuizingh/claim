@@ -1,5 +1,5 @@
 describe('app.header', function() {
-	var ctrl;
+	var controller;
 
 	beforeEach(module('app.header'), function() {
 		controller = $controller('Header');

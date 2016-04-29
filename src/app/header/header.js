@@ -5,17 +5,19 @@
         .module('app.header')
         .controller('Header', Header);
 
-    Header.$inject = ['firebase', '$rootScope'];
+    Header.$inject = ['firebase', '$rootScope', '$firebaseObject', "Current"];
 
-    function Header(firebase, $rootScope) {
+    function Header(firebase, $rootScope, $firebaseObject, Current) {
         var vm = this;
         var ref = firebase.ref();
 
         vm.logOut=logOut;
         changedAuth();
-
+        
+        
 
         $rootScope.$on('current:email', changedAuth);
+        
 
         function logOut(){
         	ref.unauth();
@@ -30,9 +32,17 @@
                   vm.email = authData.password.email;
                   vm.id= authData.uid;
                   vm.signed = true;
-                  vm.admin = authData.isAdmin?true:false;
+                  var usersRef = new Firebase("https://amber-torch-7846.firebaseio.com/users/"+authData.uid);
+                    
+                    usersRef.once("value", function(snapshot) {
+                        vm.admin=snapshot.val().isAdmin?true:false;
 
+                        Current.updateAdmin(vm.admin);
+                        //console.log(Current.getAdmin())
+                
+                    });
             } 
         }
+        
     }
 })();

@@ -1,6 +1,7 @@
 describe('app', function() {
-	var ctrl;
+	var controller;
 
+	
 	beforeEach(module('app'), function() {
 		controller = $controller('App');
 		$rootScope.$apply();
