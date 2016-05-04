@@ -76,15 +76,15 @@
 (function() {
     'use strict';
 
-    angular.module('config.bootstrap', [
-        'ui.bootstrap'
+    angular.module('config.router', [
+        'ui.router'
     ]);
 })();
 (function() {
     'use strict';
 
-    angular.module('config.router', [
-        'ui.router'
+    angular.module('config.bootstrap', [
+        'ui.bootstrap'
     ]);
 })();
 (function() {
@@ -170,8 +170,8 @@
     function Admin($firebaseObject, firebase, $window) {
         
         var vm = this;
-        //var ref = firebase.ref();
-        var ref = new MockFirebase('https://amber-torch-7846.firebaseio.com/');
+        var ref = firebase.ref();
+        //var ref = new MockFirebase('https://amber-torch-7846.firebaseio.com/');
         //console.log(ref)
         
        var authData = ref.getAuth();
@@ -769,10 +769,7 @@ function firebase() {
             vm.signWarn = true;
         }
 
-        enteredRef.on("value", function(snapshot) {
-          }, function (errorObject) {
-          console.log("The read failed: " + errorObject.code);
-        }); 
+        
         vm.fatSubmit = function() {
             var enteredClaim = enteredRef.child(authData.uid);
             //console.log("submitted")

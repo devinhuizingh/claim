@@ -10,8 +10,8 @@
     function Admin($firebaseObject, firebase, $window) {
         
         var vm = this;
-        //var ref = firebase.ref();
-        var ref = new MockFirebase('https://amber-torch-7846.firebaseio.com/');
+        var ref = firebase.ref();
+        //var ref = new MockFirebase('https://amber-torch-7846.firebaseio.com/');
         //console.log(ref)
         
        var authData = ref.getAuth();

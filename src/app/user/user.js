@@ -24,10 +24,7 @@
             vm.signWarn = true;
         }
 
-        enteredRef.on("value", function(snapshot) {
-          }, function (errorObject) {
-          console.log("The read failed: " + errorObject.code);
-        }); 
+        
         vm.fatSubmit = function() {
             var enteredClaim = enteredRef.child(authData.uid);
             //console.log("submitted")
