@@ -9,13 +9,11 @@
 			'app.user',
 			'app.customer',
 			'app.claimUser',
-			
 			'app.admin',
 
 			//anonymous
 			'anon.signIn',
 			
-
 			// Shared
 			'app.services',
 
@@ -773,7 +771,7 @@ function firebase() {
 
         enteredRef.on("value", function(snapshot) {
           }, function (errorObject) {
-          //console.log("The read failed: " + errorObject.code);
+          console.log("The read failed: " + errorObject.code);
         }); 
         vm.fatSubmit = function() {
             var enteredClaim = enteredRef.child(authData.uid);

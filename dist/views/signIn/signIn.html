@@ -3,57 +3,57 @@
 		<div class="col-sm-12">
 			
 
-    <form class="form-signin" ng-show="vm.switch">
-        <h2 class="form-signin-heading">Please Sign In</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" ng-model="vm.user.email" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" ng-model="vm.user.password" class="form-control" placeholder="Password" required>
-        <label ng-click="vm.toggle()"><a>Or click here to create a new user</a></label>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="vm.signIn()">Sign in</button>
-        
-        <label ng-click="vm.forgot()"><a>Forgot your password?</a></label><br>
-        <label ng-click="vm.change()"><a>Change your password</a></label><br>
-        <label ng-click="vm.changeEmail()"><a>Change your email</a></label><br>
-        
-        
+            <form class="form-signin" ng-show="vm.switch">
+                <h2 class="form-signin-heading">Please Sign In</h2>
+                <label for="inputEmail" class="sr-only">Email address</label>
+                <input type="email" ng-model="vm.user.email" class="form-control" placeholder="Email address" required autofocus>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" ng-model="vm.user.password" class="form-control" placeholder="Password" required>
+                <label ng-click="vm.toggle()"><a>Or click here to create a new user</a></label>
+                <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="vm.signIn()">Sign in</button>
+                
+                <label ng-click="vm.forgot()"><a>Forgot your password?</a></label><br>
+                <label ng-click="vm.change()"><a>Change your password</a></label><br>
+                <label ng-click="vm.changeEmail()"><a>Change your email</a></label><br>
+                
+                
 
-        <h2 ng-if="vm.success">User was successfully signed in!</h2>
-        <h2 ng-if="vm.failure">User could not be signed in! Please try again or sign up instead
-        </h2>
-        <h3 ng-if="vm.instructions"><input type="email" ng-model="vm.user.email" class="form-control" placeholder="Email address" required autofocus><button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="vm.forgot2()">Forgot</button>Enter your email address to have a temporary password sent to you 
-        </h3>
-        <h2 ng-if="vm.changed">
-            <input type="email" ng-model="vm.user.email" class="form-control" placeholder="Email Address" required autofocus>
-            <input type="password" ng-model="vm.user.password" class="form-control" placeholder="Current Password" required>
-            <input type="password" ng-model="vm.user.newPassword" class="form-control" placeholder="New Password" required>
-            <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="vm.change2()">Change Password</button>
-        </h2>
-        <h2 ng-if="vm.changedEmail">
-            <input type="email" ng-model="vm.user.email" class="form-control" placeholder="Email Address" required autofocus>
-            <input type="email" ng-model="vm.user.newEmail" class="form-control" placeholder="New Email Address" required>
-            <input type="email" ng-model="vm.user.password" class="form-control" placeholder="Password" required>
-            <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="vm.changeEmail2()">Change Email</button>
-        </h2>
-    </form>
-	
-
-
-
-    <form class="form-signin" ng-hide="vm.switch">
-        <h2 class="form-signin-heading">Create New User</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" ng-model="vm.user.email" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" ng-model="vm.user.password" class="form-control" placeholder="Password" >
-        <label ng-click="vm.toggle()"><a>Or click here to log in</a></label>
-        
-        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="vm.signUp()">Create</button>
-	    <h2 ng-if="vm.success">User was created successfully! Please update your <a ui-sref="app.customer">customer info</a> next</h2>
-        <h2 ng-if="vm.failure">User could not be created, perhaps that user already exists? Try resetting your password</h2>
+                <h2 ng-if="vm.success">User was successfully signed in!</h2>
+                <h2 ng-if="vm.failure">User could not be signed in! Please try again or sign up instead
+                </h2>
+                <h3 ng-if="vm.instructions"><input type="email" ng-model="vm.user.email" class="form-control" placeholder="Email address" required autofocus><button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="vm.forgot2()">Forgot</button>Enter your email address to have a temporary password sent to you 
+                </h3>
+                <h2 ng-if="vm.changed">
+                    <input type="email" ng-model="vm.user.email" class="form-control" placeholder="Email Address" required autofocus>
+                    <input type="password" ng-model="vm.user.password" class="form-control" placeholder="Current Password" required>
+                    <input type="password" ng-model="vm.user.newPassword" class="form-control" placeholder="New Password" required>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="vm.change2()">Change Password</button>
+                </h2>
+                <h2 ng-if="vm.changedEmail">
+                    <input type="email" ng-model="vm.user.email" class="form-control" placeholder="Email Address" required autofocus>
+                    <input type="email" ng-model="vm.user.newEmail" class="form-control" placeholder="New Email Address" required>
+                    <input type="email" ng-model="vm.user.password" class="form-control" placeholder="Password" required>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="vm.changeEmail2()">Change Email</button>
+                </h2>
+            </form>
+        	
 
 
-    </form>
+
+            <form class="form-signin" ng-hide="vm.switch">
+                <h2 class="form-signin-heading">Create New User</h2>
+                <label for="inputEmail" class="sr-only">Email address</label>
+                <input type="email" ng-model="vm.user.email" class="form-control" placeholder="Email address" required autofocus>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" ng-model="vm.user.password" class="form-control" placeholder="Password" >
+                <label ng-click="vm.toggle()"><a>Or click here to log in</a></label>
+                
+                <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="vm.signUp()">Create</button>
+        	    <h2 ng-if="vm.success">User was created successfully! Please update your <a ui-sref="app.customer">customer info</a> next</h2>
+                <h2 ng-if="vm.failure">User could not be created, perhaps that user already exists? Try resetting your password</h2>
+
+
+            </form>
 
 			
 		</div>
