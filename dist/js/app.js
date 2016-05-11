@@ -76,15 +76,15 @@
 (function() {
     'use strict';
 
-    angular.module('config.router', [
-        'ui.router'
+    angular.module('config.bootstrap', [
+        'ui.bootstrap'
     ]);
 })();
 (function() {
     'use strict';
 
-    angular.module('config.bootstrap', [
-        'ui.bootstrap'
+    angular.module('config.router', [
+        'ui.router'
     ]);
 })();
 (function() {
